@@ -1,0 +1,115 @@
+/* =========================
+      Contact Introduction
+   ========================= */
+.contact-intro {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-xlarge) var(--space-large) var(--space-large);
+  text-align: center;
+}
+
+.contact-intro h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* =========================
+         Contact Form
+   ========================= */
+.contact {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-large) var(--space-xlarge);
+}
+
+.contact-form {
+  background-color: var(--color-surface);
+  padding: var(--space-large);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* First and last name fields */
+.name-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-medium);
+}
+
+/* Form fields */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-medium);
+}
+
+.form-group label {
+  margin-bottom: var(--space-small);
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font: inherit;
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  transition: border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Highlight form fields on mouse hover */
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--color-focus);
+}
+
+/* Highlight form fields when selected */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-focus);
+  box-shadow: 0 0 0 3px rgba(109, 89, 122, 0.18);
+  outline: none;
+}
+
+
+/* send button */
+.contact-form .btn {
+  display: block;
+  margin: 0 auto;
+}
+
+/* =========================
+       Responsive 
+   ========================= */
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .contact-intro {
+    padding: var(--space-large) var(--space-medium);
+  }
+
+  .contact-intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .contact {
+    padding: 0 var(--space-medium) var(--space-large);
+  }
+
+  .contact-form {
+    padding: var(--space-medium);
+  }
+
+  .name-fields {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

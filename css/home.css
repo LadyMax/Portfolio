@@ -1,0 +1,155 @@
+/* =========================
+             Hero
+   ========================= */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-xlarge);
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: var(--space-xlarge) var(--space-large);
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: var(--space-small);
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: var(--color-focus);
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+}
+
+.hero img {
+  width: 350px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* =========================
+       Featured Projects
+   ========================= */
+.featured-projects {
+  padding: var(--space-xlarge) var(--space-large);
+}
+
+.featured-projects h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: var(--space-large);
+}
+
+/* Project card (big) container */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-large);
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual project card (small) container */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: var(--color-surface);
+  padding: var(--space-medium);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Project card effect */
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  margin-top: var(--space-medium);
+  margin-bottom: var(--space-small);
+}
+
+.project-card p {
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+}
+/* Button - View project */
+.project-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+/* Project category */
+.project-type {
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+}
+
+/* =========================
+       Responsive Design
+   ========================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+
+  .hero {
+    flex-direction: column;
+    gap: var(--space-large);
+  }
+
+  /* 2 project cards per row */
+  .project-card {
+    flex: 0 1 calc(50% - (var(--space-large) / 2));
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .hero {
+    padding: var(--space-large) var(--space-medium);
+    gap: var(--space-medium);
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero img {
+    width: 280px;
+  }
+
+  .featured-projects {
+    padding: var(--space-large) var(--space-medium);
+  }
+
+  .project-list {
+    flex-direction: column;
+    gap: var(--space-medium);
+  }
+
+  .project-card {
+    width: 100%;
+  }
+}

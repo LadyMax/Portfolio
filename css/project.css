@@ -1,0 +1,247 @@
+/* =========================
+      Project Introduction
+   ========================= */
+.project-intro {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: var(--space-xlarge) var(--space-large);
+  text-align: center;
+}
+
+.project-intro h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+}
+
+.project-intro p {
+  margin: 0;
+  color: var(--color-text);
+}
+
+/* =========================
+       Projects Container
+   ========================= */
+.projects {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: var(--space-large);
+}
+
+/* =========================
+        Project Cards
+   ========================= */
+.project-card {
+  padding: var(--space-xlarge) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Remove the divider after the last project */
+.project-card:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+       Project Overview
+   ========================= */
+
+/* Cover image and project summary */
+.project-overview {
+  display: flex;
+  gap: var(--space-xlarge);
+  align-items: center;
+}
+
+.project-cover,
+.project-summary {
+  flex: 1;
+}
+
+/* Project cover image */
+.project-cover a {
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.project-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Cover image hover effect */
+.project-cover a:hover img {
+  transform: scale(1.03);
+}
+
+/* Project summary */
+.project-type {
+  color: var(--color-focus);
+  font-weight: bold;
+  margin-bottom: var(--space-small);
+}
+
+.project-summary h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+}
+
+.project-summary p {
+  margin-top: 0;
+}
+
+/* =========================
+      Project Screenshots
+   ========================= */
+.project-screenshot {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-large);
+  margin-top: var(--space-xlarge);
+}
+
+.project-screenshot figure {
+  margin: 0;
+}
+
+/* Screenshot image link */
+.project-screenshot a {
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.project-screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Screenshot effect */
+.project-screenshot a:hover img {
+  transform: scale(1.08);
+}
+
+/* Screenshot caption */
+.project-screenshot figcaption {
+  margin-top: var(--space-small);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold ;
+  color: var(--color-focus);
+
+}
+
+/* Portrait screenshots */
+.project-screenshot.portrait {
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-medium);
+}
+
+/* =========================
+        Project Details
+   ========================= */
+.project-content {
+  margin-top: var(--space-xlarge);
+}
+
+.project-content h3 {
+  font-size: 1.5rem;
+  margin-top: var(--space-large);
+  margin-bottom: var(--space-small);
+  color: var(--color-text);
+}
+
+.project-content p {
+  margin-top: 0;
+}
+
+/* =========================
+       Responsive Design
+   ========================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+    /* Stack project overview vertically */
+  .project-overview {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-large);
+  }
+
+  .project-summary,
+  .project-cover {
+    width: 100%;
+  }
+
+  /* regular screenshots in one row */
+  .project-screenshot {
+    grid-template-columns: 1fr;
+  }
+
+  .project-screenshot.portrait {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* the last portrait screenshot in center */
+  .project-screenshot.portrait figure:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - (var(--space-medium) / 2));
+    justify-self: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .project-intro {
+    padding: var(--space-large) var(--space-medium);
+  }
+
+  .project-intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .projects {
+    padding: var(--space-medium);
+  }
+
+  .project-card {
+    padding: var(--space-large) 0;
+  }
+
+  .project-overview {
+    gap: var(--space-medium);
+  }
+
+  .project-summary h2 {
+    font-size: 1.7rem;
+  }
+
+  .project-screenshot {
+    gap: var(--space-large);
+    margin-top: var(--space-large);
+  }
+
+  .project-screenshot.portrait {
+    grid-template-columns: 1fr;
+  }
+
+  /* Restore the last portrait screenshot to full width */
+  .project-screenshot.portrait figure:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .project-content {
+    margin-top: var(--space-large);
+  }
+
+  .project-content h3 {
+    font-size: 1.3rem;
+  }
+}

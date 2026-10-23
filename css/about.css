@@ -1,0 +1,157 @@
+/* =========================
+      Shared Section Styles
+   ========================= */
+.about-intro,
+.journey,
+.skills {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: var(--space-xlarge) var(--space-large);
+}
+
+.skills,
+.journey {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Section headings */
+.journey h2,
+.skills h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: var(--space-large);
+}
+
+/* =========================
+         About Me
+   ========================= */
+.about-intro {
+  text-align: center;
+}
+
+.about-intro h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+}
+
+.about-intro p {
+  max-width: 750px;
+  margin: 0 auto var(--space-medium);
+  text-align: left;
+}
+
+/* =========================
+          My Skills
+   ========================= */
+.skills-list {
+  display: flex;
+  gap: var(--space-large);
+}
+
+/* Individual skill card */
+.skill-card {
+  flex: 1;
+  background-color: var(--color-surface);
+  padding: var(--space-large);
+  border-radius: 10px;
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  color: var(--color-accent-dark);
+}
+
+.skill-card p {
+  margin-bottom: 0;
+}
+
+/* =========================
+          My Journey
+   ========================= */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: var(--space-large);
+  border-left: 3px solid var(--color-accent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-large);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline marker */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-focus);
+  border-radius: 50%;
+  left: calc(-1 * var(--space-large) - 7.5px);
+  top: 6px;
+}
+
+.timeline-date {
+  color: var(--color-primary);
+  font-weight: bold;
+  margin-bottom: var(--space-small);
+}
+
+.timeline-item h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-small);
+}
+
+.timeline-item p {
+  margin-top: 0;
+}
+
+/* =========================
+       Responsive Design
+   ========================= */
+
+/* Tablet - 2 cards per row */
+@media (max-width: 900px) {
+  .skills-list {
+    flex-wrap: wrap;
+  }
+
+  .skill-card {
+    flex: 1 1 calc(50% - var(--space-large));
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .about-intro,
+  .journey,
+  .skills {
+    padding: var(--space-large) var(--space-medium);
+  }
+
+  .about-intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    gap: var(--space-medium);
+  }
+
+  .skill-card {
+    width: 100%;
+    padding: var(--space-medium);
+  }
+
+  .timeline {
+    padding-left: var(--space-large);
+  }
+}

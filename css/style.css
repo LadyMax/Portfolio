@@ -1,0 +1,287 @@
+/* =========================
+         Global Styles
+   ========================= */
+
+:root {
+  /* Color */
+  --color-background: #f3f1f5;
+  --color-primary: #6d597a; /* seed color */
+  --color-surface: #ffffff;
+  --color-focus: #74399a;
+
+  /* Text color */
+  --color-text: #261f2b;
+  --color-text-light: #ffffff;
+  --color-accent: #caabde;
+  --color-accent-dark: #4f4058;
+  --color-border: #6d597a;
+
+  /* Typography */
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  /* Spacing */
+  --space-small: 0.5rem;
+  --space-medium: 1rem;
+  --space-large: 2rem;
+  --space-xlarge: 4rem;
+}
+
+/* Include padding and border in the element's total size */
+* {
+  box-sizing: border-box;
+}
+
+/* Main page styles */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+/* =========================
+     Header and Navigation
+   ========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-medium) var(--space-large);
+  background-color: var(--color-primary);
+}
+
+/* Brenda title */
+header div {
+  margin-right: 6rem;
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Navigation bar */
+header nav ul {
+  display: flex;
+  gap: var(--space-large);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation links */
+header nav a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Navigation hover effect */
+header nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Active page */
+header nav a.active {
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* =========================
+           Footer
+   ========================= */
+
+footer {
+  background-color: var(--color-primary);
+  padding: var(--space-xlarge) var(--space-large) var(--space-large);
+  margin-top: var(--space-xlarge);
+}
+
+/* Footer navigation */
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-large);
+  list-style: none;
+  margin: 0 0 var(--space-large);
+  padding: 0;
+}
+
+footer nav a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Footer content */
+footer section {
+  text-align: center;
+}
+
+/* Footer lists */
+footer section ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-large);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-medium) 0;
+}
+
+footer section a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer section a:hover {
+  color: var(--color-text-light);
+}
+
+/* Email and phone */
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xlarge);
+  margin-bottom: var(--space-large);
+  color: var(--color-text-light);
+}
+
+/* Social media icons */
+.social-links {
+  gap: 3rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-links img {
+  width: 22px;
+  height: 22px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Social media icon hover effect */
+.social-links a:hover img {
+  transform: translateY(-3px);
+  opacity: 0.75;
+}
+
+/* Copyright text */
+.copyright {
+  text-align: center;
+  margin: var(--space-large) 0 0;
+  padding-top: var(--space-large);
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* =========================
+           Buttons
+   ========================= */
+
+/* Shared button style */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: var(--color-focus);
+  transform: translateY(-2px);
+}
+
+/* =========================
+       Keyboard Focus
+   ========================= */
+
+/* Visible focus for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Light focus outline on dark backgrounds */
+header a:focus-visible,
+footer a:focus-visible {
+  outline-color: var(--color-text-light);
+}
+
+/* =========================
+   Responsive Header/Footer
+   ========================= */
+
+@media (max-width: 600px) {
+  /* Stack the header on small screens */
+  header {
+    flex-direction: column;
+    gap: var(--space-medium);
+    padding: var(--space-medium);
+  }
+
+  /* Center Brenda title on mobile */
+  header div {
+    margin-right: 0;
+  }
+
+  /* Allow navigation links to move to a new row */
+  header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-small) var(--space-medium);
+  }
+
+  /* Reduce footer side padding */
+  footer {
+    padding: var(--space-large) var(--space-medium);
+  }
+
+  /* Allow footer navigation to wrap */
+  footer nav ul {
+    flex-wrap: wrap;
+    gap: var(--space-small) var(--space-medium);
+  }
+
+  /* Stack email and phone information */
+  .contact-info {
+    flex-direction: column;
+    gap: var(--space-small);
+  }
+}
