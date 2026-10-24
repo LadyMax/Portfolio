@@ -16,6 +16,10 @@
   --color-accent-dark: #4f4058;
   --color-border: #6d597a;
 
+  /* Form state color */
+  --color-error: #b00020;
+  --color-success: #2e7d32;
+
   /* Typography */
   --font-heading: Georgia, "Times New Roman", serif;
   --font-body: Arial, Helvetica, sans-serif;
