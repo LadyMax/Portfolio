@@ -77,3 +77,14 @@ function validateEmail() {
    return true;
 }
 email.addEventListener("blur", validateEmail);
+
+// Validate topic field
+function validateTopic() {
+   if (topic.value === "") {
+      showFieldError(topic, topicError, "Please select a topic.");
+      return false;
+   }
+   clearFieldError(topic, topicError);
+   return true;
+}
+topic.addEventListener("change", validateTopic);
