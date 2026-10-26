@@ -41,7 +41,7 @@ function validateFullName() {
       fullNameError,
       "Full name must contain at least 2 characters.",
     );
-      return false;
+    return false;
   }
 
   if (!namePattern.test(name)) {
@@ -50,7 +50,7 @@ function validateFullName() {
       fullNameError,
       "Full name can only contain letters, spaces, apostrophes, and hyphens.",
     );
-      return false;
+    return false;
   }
 
   clearFieldError(fullName, fullNameError);
@@ -61,30 +61,68 @@ fullName.addEventListener("blur", validateFullName);
 
 // Validate email field
 function validateEmail() {
-   const emailValue = email.value.trim();
-   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression pattern to match email addresses
-   
-   if (emailValue === "") {
-      showFieldError(email, emailError, "Email is required.");
-      return false;
-   }
+  const emailValue = email.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression pattern to match email addresses
 
-   if (!email.validity.valid || !emailPattern.test(emailValue)) {
-      showFieldError(email, emailError, "Please enter a valid email address.");
-      return false;
-   }
-   clearFieldError(email, emailError);
-   return true;
+  if (emailValue === "") {
+    showFieldError(email, emailError, "Email is required.");
+    return false;
+  }
+
+  if (!email.validity.valid || !emailPattern.test(emailValue)) {
+    showFieldError(email, emailError, "Please enter a valid email address.");
+    return false;
+  }
+  clearFieldError(email, emailError);
+  return true;
 }
 email.addEventListener("blur", validateEmail);
 
 // Validate topic field
 function validateTopic() {
-   if (topic.value === "") {
-      showFieldError(topic, topicError, "Please select a topic.");
-      return false;
-   }
-   clearFieldError(topic, topicError);
-   return true;
+  if (topic.value === "") {
+    showFieldError(topic, topicError, "Please select a topic.");
+    return false;
+  }
+  clearFieldError(topic, topicError);
+  return true;
 }
 topic.addEventListener("change", validateTopic);
+
+// Validate comments field
+function validateComments() {
+  const commentsValue = comments.value.trim();
+
+  if (commentsValue.length < 15) {
+    showFieldError(
+      comments,
+      commentsError,
+      "Comments must contain at least 15 characters.",
+    );
+    return false;
+  }
+  clearFieldError(comments, commentsError);
+  return true;
+}
+
+// Update comments character counter
+function updateCommentsCounter() {
+  const length = comments.value.length;
+
+  if (length < 15) {
+    commentsCounter.textContent = `${length}/15 characters required`;
+    commentsCounter.classList.add("error");
+    commentsCounter.classList.remove("valid");
+  } else {
+    commentsCounter.textContent = `${length} characters`;
+    commentsCounter.classList.remove("error");
+    commentsCounter.classList.add("valid");
+  }
+}
+comments.addEventListener("input", () => {
+  updateCommentsCounter();
+  if (comments.classList.contains("error")) {
+    validateComments();
+  }
+});
+comments.addEventListener("blur", validateComments);

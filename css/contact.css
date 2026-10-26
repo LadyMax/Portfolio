@@ -94,6 +94,20 @@
   margin-top: var(--space-small);
 }
 
+.char-counter {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: var(--space-small);
+}
+
+.char-counter.error {
+  color: var(--color-error);
+}
+
+.char-counter.valid {
+  color: var(--color-success);
+}
+
 /* send button */
 .contact-form .btn {
   display: block;
