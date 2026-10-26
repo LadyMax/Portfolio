@@ -57,8 +57,6 @@ function validateFullName() {
   return true;
 }
 
-fullName.addEventListener("blur", validateFullName);
-
 // Validate email field
 function validateEmail() {
   const emailValue = email.value.trim();
@@ -76,7 +74,6 @@ function validateEmail() {
   clearFieldError(email, emailError);
   return true;
 }
-email.addEventListener("blur", validateEmail);
 
 // Validate topic field
 function validateTopic() {
@@ -87,7 +84,6 @@ function validateTopic() {
   clearFieldError(topic, topicError);
   return true;
 }
-topic.addEventListener("change", validateTopic);
 
 // Validate comments field
 function validateComments() {
@@ -119,10 +115,56 @@ function updateCommentsCounter() {
     commentsCounter.classList.add("valid");
   }
 }
+
+// Validate website field
+function validateWebsite() {
+  const websiteValue = website.value.trim();
+
+  if (websiteValue === "") {
+   website.classList.remove("error", "valid");
+   websiteError.textContent = "";
+    return true;  
+  }
+
+  if (!website.validity.valid) {
+    showFieldError(
+      website,
+      websiteError,
+      "Please enter a valid website URL.",
+    );
+    return false;
+  }
+  clearFieldError(website, websiteError);
+  return true;
+}
+
+// listener
+fullName.addEventListener("blur", validateFullName);
+fullName.addEventListener("input", () => {
+  if (fullName.classList.contains("error")) {
+    validateFullName();
+  }
+});
+
+email.addEventListener("blur", validateEmail);
+email.addEventListener("input", () => {
+  if (email.classList.contains("error")) {
+    validateEmail();
+  }
+});
+
+topic.addEventListener("change", validateTopic);
+
+comments.addEventListener("blur", validateComments);
 comments.addEventListener("input", () => {
   updateCommentsCounter();
   if (comments.classList.contains("error")) {
     validateComments();
   }
 });
-comments.addEventListener("blur", validateComments);
+website.addEventListener("blur", validateWebsite);
+website.addEventListener("input", () => {
+  if (website.classList.contains("error")) {
+    validateWebsite();
+  }   
+});
