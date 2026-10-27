@@ -105,7 +105,7 @@ function validateComments() {
 
 // Update comments character counter while user is typing
 function updateCommentsCounter() {
-  const length = comments.value.length;
+  const length = comments.value.trim().length;
 
   if (length < 15) {
     commentsCounter.textContent = `${length}/15 characters required`;
@@ -124,18 +124,14 @@ function validateWebsite() {
 
   // an empty website field is considered valid, becoz of optional
   if (websiteValue === "") {
-   website.classList.remove("error", "valid");
-   websiteError.textContent = "";
-    return true;  
+    website.classList.remove("error", "valid");
+    websiteError.textContent = "";
+    return true;
   }
 
   // use the browser's built-in validation for URLs
   if (!website.validity.valid) {
-    showFieldError(
-      website,
-      websiteError,
-      "Please enter a valid website URL.",
-    );
+    showFieldError(website, websiteError, "Please enter a valid website URL.");
     return false;
   }
   clearFieldError(website, websiteError);
@@ -144,32 +140,32 @@ function validateWebsite() {
 
 // Reset the form, validation states, error messages, and counter
 function resetForm() {
-   feedbackForm.reset();
-   
-   const fields = [fullName, email, topic, comments, website];
-   fields.forEach((field) => {
-     field.classList.remove("error", "valid");
-   });
+  feedbackForm.reset();
 
-   const errorMessages = [
-     fullNameError,
-     emailError,
-     topicError,
-     commentsError,
-     websiteError,
-   ];
+  const fields = [fullName, email, topic, comments, website];
+  fields.forEach((field) => {
+    field.classList.remove("error", "valid");
+  });
 
-   errorMessages.forEach((errorMessage) => {
-     errorMessage.textContent = "";
-   });
+  const errorMessages = [
+    fullNameError,
+    emailError,
+    topicError,
+    commentsError,
+    websiteError,
+  ];
 
-   commentsCounter.textContent = "0/15 characters required";
-   commentsCounter.classList.remove("error", "valid");
+  errorMessages.forEach((errorMessage) => {
+    errorMessage.textContent = "";
+  });
+
+  commentsCounter.textContent = "0/15 characters required";
+  commentsCounter.classList.remove("error", "valid");
 }
 
 // validate all fields when the form is submitted
 feedbackForm.addEventListener("submit", (event) => {
-   // prevent the form from submitting and refreshing the page
+  // prevent the form from submitting and refreshing the page
   event.preventDefault();
 
   //run all validation functions
@@ -187,7 +183,7 @@ feedbackForm.addEventListener("submit", (event) => {
     isCommentsValid &&
     isWebsiteValid
   ) {
-   // save the name before resetting the form
+    // save the name before resetting the form
     const submittedName = fullName.value.trim();
 
     // display a success message
@@ -201,7 +197,7 @@ feedbackForm.addEventListener("submit", (event) => {
       formStatus.textContent = "";
       formStatus.classList.remove("success");
     }, 4000);
-    }
+  }
 });
 
 // clear the form when the clear button is clicked
@@ -245,5 +241,5 @@ website.addEventListener("blur", validateWebsite);
 website.addEventListener("input", () => {
   if (website.classList.contains("error")) {
     validateWebsite();
-  }   
+  }
 });
