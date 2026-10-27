@@ -45,14 +45,79 @@
 /* =========================
           My Skills
    ========================= */
+
+/* Skills filter and sort controls */
+.skills-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-medium);
+  margin-bottom: var(--space-large);
+  flex-wrap: wrap;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
+  flex-wrap: wrap;
+}
+
+.filter-controls span,
+.sort-controls label {
+  font-weight: bold;
+}
+
+/* Skill filter buttons */
+.filter-btn {
+  padding: var(--space-small) var(--space-medium);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: var(--color-accent);
+}
+
+/* Currently selected filter button */
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+/* Skill sorting controls */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
+}
+
+#skill-sort {
+  padding: var(--space-small);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+/* Skill cards */
 .skills-list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-large);
 }
 
 /* Individual skill card */
 .skill-card {
-  flex: 1;
+  flex: 1 1 250px;
+  max-width: 300px;
   background-color: var(--color-surface);
   padding: var(--space-large);
   border-radius: 10px;
@@ -119,10 +184,6 @@
 
 /* Tablet - 2 cards per row */
 @media (max-width: 900px) {
-  .skills-list {
-    flex-wrap: wrap;
-  }
-
   .skill-card {
     flex: 1 1 calc(50% - var(--space-large));
   }
@@ -130,7 +191,6 @@
 
 /* Mobile */
 @media (max-width: 600px) {
-
   .about-intro,
   .journey,
   .skills {
@@ -148,6 +208,7 @@
 
   .skill-card {
     width: 100%;
+    max-width: none;
     padding: var(--space-medium);
   }
 
