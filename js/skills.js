@@ -62,38 +62,48 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 // get skill sorting select
 const skillSort = document.getElementById("skill-sort");
 
+// store the currently selected category
+let currentCategory = "all";
+
 // filter skills when a category button is clicked
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const selectedCategory = button.dataset.category;
+    currentCategory = button.dataset.category;
 
     // update the active filter button
     filterButtons.forEach((filterButton) => {
       filterButton.classList.remove("active");
     });
+
     button.classList.add("active");
 
-    if (selectedCategory === "all") {
-      renderSkills(skills);
-    } else {
-      const filteredSkills = skills.filter(
-        (skill) => skill.category === selectedCategory,
-      );
-
-      renderSkills(filteredSkills);
-    }
+    updateSkills();
   });
 });
 
-// sort skills when the select is changed
+// update skills when the sorting option changes
 skillSort.addEventListener("change", () => {
-   const sortOption = skillSort.value;
-   let sortSkills = [...skills]; // create a copy of the skills array
+  updateSkills();
+});
 
-   if (sortOption === "name") {
-     sortSkills.sort((a, b) => a.name.localeCompare(b.name));
-   } else if (sortOption === "level") {
-     sortSkills.sort((a, b) => b.level - a.level);
-   }
-   renderSkills(sortSkills);
-})
+// apply the selected filter and sort option
+function updateSkills() {
+  let updatedSkills = [...skills]; // create a copy of the skills array
+
+  // filter by category
+  if (currentCategory !== "all") {
+    updatedSkills = updatedSkills.filter(
+      (skill) => skill.category === currentCategory,
+    );
+  }
+
+  // sort the filtered skills
+  const sortOption = skillSort.value;
+
+  if (sortOption === "name") {
+    updatedSkills.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortOption === "level") {
+    updatedSkills.sort((a, b) => b.level - a.level);
+  }
+  renderSkills(updatedSkills);
+}
