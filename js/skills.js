@@ -1,30 +1,38 @@
 // Skills data
 const skills = [
   {
+    id: 1,
     name: "HTML & CSS",
     category: "frontend",
-    level: 4,
+    proficiency: 4,
+    yearsExperience: 2,
     description:
       "I learned HTML and CSS through web development courses and practical projects. I use them to create structured, responsive and accessible web pages, including this portfolio.",
   },
   {
+    id: 2,
     name: "JavaScript",
     category: "frontend",
-    level: 3,
+    proficiency: 3,
+    yearsExperience: 2,
     description:
       "I learned the basics of JavaScript during my YH studies and am currently developing my skills through a university web development course. I use it to add interaction to web pages.",
   },
   {
+    id: 3,
     name: "C# & .NET",
     category: "backend",
-    level: 4,
+    proficiency: 4,
+    yearsExperience: 3,
     description:
       "I learned C# and .NET during my two-year system development programme. I have used them to develop backend applications and APIs in both school and personal projects.",
   },
   {
+    id: 4,
     name: "Databases & Tools",
     category: "tools",
-    level: 3,
+    proficiency: 3,
+    yearsExperience: 2.5,
     description:
       "I learned to work with SQL databases through my studies and development projects. I also use Git and GitHub for version control and Visual Studio and VS Code for development.",
   },
@@ -60,7 +68,7 @@ function renderSkills(skillsToRender) {
     skillLevel.classList.add("skill-level");
 
     const levelText = document.createElement("span");
-    levelText.textContent = `Level: ${skill.level}/5`;
+    levelText.textContent = `Level: ${skill.proficiency}/5`;
 
     // Create visual star indicator
     const levelIndicator = document.createElement("span");
@@ -70,7 +78,7 @@ function renderSkills(skillsToRender) {
       const levelStar = document.createElement("span");
       levelStar.classList.add("level-star");
 
-      if (i <= skill.level) {
+      if (i <= skill.proficiency) {
         levelStar.textContent = "★";
       } else {
         levelStar.textContent = "☆";
@@ -115,7 +123,7 @@ function updateSkills() {
   if (sortOption === "name") {
     updatedSkills.sort((a, b) => a.name.localeCompare(b.name));
   } else if (sortOption === "level") {
-    updatedSkills.sort((a, b) => b.level - a.level);
+    updatedSkills.sort((a, b) => b.proficiency - a.proficiency);
   }
 
   renderSkills(updatedSkills);
