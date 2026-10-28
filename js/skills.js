@@ -59,6 +59,9 @@ renderSkills(skills);
 // get all category filter buttons
 const filterButtons = document.querySelectorAll(".filter-btn");
 
+// get skill sorting select
+const skillSort = document.getElementById("skill-sort");
+
 // filter skills when a category button is clicked
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -81,3 +84,16 @@ filterButtons.forEach((button) => {
     }
   });
 });
+
+// sort skills when the select is changed
+skillSort.addEventListener("change", () => {
+   const sortOption = skillSort.value;
+   let sortSkills = [...skills]; // create a copy of the skills array
+
+   if (sortOption === "name") {
+     sortSkills.sort((a, b) => a.name.localeCompare(b.name));
+   } else if (sortOption === "level") {
+     sortSkills.sort((a, b) => b.level - a.level);
+   }
+   renderSkills(sortSkills);
+})
