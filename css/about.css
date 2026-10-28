@@ -161,6 +161,14 @@
   font-weight: lighter;
 }
 
+/* years of experience */
+.skill-experience {
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
 /* skill description */
 .skill-card > p:last-child {
   margin-top: 0;

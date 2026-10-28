@@ -125,6 +125,11 @@ function renderSkills(skillsToRender) {
     skillLevel.appendChild(levelText);
     skillLevel.appendChild(levelIndicator);
 
+    // Create skill years of experience
+    const skillExperience = document.createElement("p");
+    skillExperience.classList.add("skill-experience");
+    skillExperience.textContent = `Experience: ${skill.yearsExperience} years`;
+
     // Create skill description
     const skillDescription = document.createElement("p");
     skillDescription.textContent = skill.description;
@@ -133,6 +138,7 @@ function renderSkills(skillsToRender) {
     skillCard.appendChild(skillName);
     skillCard.appendChild(skillCategory);
     skillCard.appendChild(skillLevel);
+    skillCard.appendChild(skillExperience);
     skillCard.appendChild(skillDescription);
 
     // Add the completed card to the skills list
