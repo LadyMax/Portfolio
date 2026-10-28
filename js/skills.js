@@ -33,7 +33,7 @@ const skills = [
 // Get the container where skill cards will be displayed
 const skillsList = document.getElementById("skills-list");
 
-// display skill cards on the page
+// Display skill cards on the page
 function renderSkills(skillsToRender) {
   skillsList.innerHTML = "";
 
@@ -44,10 +44,20 @@ function renderSkills(skillsToRender) {
     const skillName = document.createElement("h3");
     skillName.textContent = skill.name;
 
+    const skillCategory = document.createElement("p");
+    skillCategory.classList.add("skill-category");
+    skillCategory.textContent = skill.category;
+
+    const skillLevel = document.createElement("p");
+    skillLevel.classList.add("skill-level");
+    skillLevel.textContent = `Level: ${skill.level}/5`;
+
     const skillDescription = document.createElement("p");
     skillDescription.textContent = skill.description;
 
     skillCard.appendChild(skillName);
+    skillCard.appendChild(skillCategory);
+    skillCard.appendChild(skillLevel);
     skillCard.appendChild(skillDescription);
 
     skillsList.appendChild(skillCard);
