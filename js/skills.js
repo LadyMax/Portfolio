@@ -161,10 +161,12 @@ function updateSkills() {
   // Sort the filtered skills
   const sortOption = skillSort.value;
 
-  if (sortOption === "name") {
-    updatedSkills.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (sortOption === "level") {
+  if (sortOption === "proficiency") {
     updatedSkills.sort((a, b) => b.proficiency - a.proficiency);
+  } else if (sortOption === "experience") {
+    updatedSkills.sort((a, b) => b.yearsExperience - a.yearsExperience);
+  } else if (sortOption === "name") { 
+    updatedSkills.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   renderSkills(updatedSkills);
