@@ -128,10 +128,7 @@
   color: var(--color-accent-dark);
 }
 
-.skill-card p {
-  margin-bottom: 0;
-}
-
+/* skill category label */
 .skill-category {
   display: inline-block;
   margin: 0 0 var(--space-small);
@@ -145,10 +142,29 @@
 }
 
 .skill-level {
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
   margin-top: 0;
   margin-bottom: var(--space-medium);
   color: var(--color-primary);
   font-weight: bold;
+}
+
+.level-indicator {
+  display: flex;
+  gap: 4px;
+}
+
+.level-star {
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+/* skill description */
+.skill-card > p:last-child {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* =========================

@@ -30,8 +30,13 @@ const skills = [
   },
 ];
 
-// Get the container where skill cards will be displayed
+// Get DOM elements
 const skillsList = document.getElementById("skills-list");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const skillSort = document.getElementById("skill-sort");
+
+// Store the currently selected category
+let currentCategory = "all";
 
 // Display skill cards on the page
 function renderSkills(skillsToRender) {
@@ -41,46 +46,87 @@ function renderSkills(skillsToRender) {
     const skillCard = document.createElement("article");
     skillCard.classList.add("skill-card");
 
+    // Create skill name
     const skillName = document.createElement("h3");
     skillName.textContent = skill.name;
 
+    // Create skill category
     const skillCategory = document.createElement("p");
     skillCategory.classList.add("skill-category");
     skillCategory.textContent = skill.category;
 
-    const skillLevel = document.createElement("p");
+    // Create skill level
+    const skillLevel = document.createElement("div");
     skillLevel.classList.add("skill-level");
-    skillLevel.textContent = `Level: ${skill.level}/5`;
 
+    const levelText = document.createElement("span");
+    levelText.textContent = `Level: ${skill.level}/5`;
+
+    // Create visual star indicator
+    const levelIndicator = document.createElement("span");
+    levelIndicator.classList.add("level-indicator");
+
+    for (let i = 1; i <= 5; i++) {
+      const levelStar = document.createElement("span");
+      levelStar.classList.add("level-star");
+
+      if (i <= skill.level) {
+        levelStar.textContent = "★";
+      } else {
+        levelStar.textContent = "☆";
+      }
+
+      levelIndicator.appendChild(levelStar);
+    }
+
+    skillLevel.appendChild(levelText);
+    skillLevel.appendChild(levelIndicator);
+
+    // Create skill description
     const skillDescription = document.createElement("p");
     skillDescription.textContent = skill.description;
 
+    // Add skill information to the card
     skillCard.appendChild(skillName);
     skillCard.appendChild(skillCategory);
     skillCard.appendChild(skillLevel);
     skillCard.appendChild(skillDescription);
 
+    // Add the completed card to the skills list
     skillsList.appendChild(skillCard);
   });
 }
 
-renderSkills(skills);
+// Apply the selected filter and sort option
+function updateSkills() {
+  // Create a copy of the original skills array
+  let updatedSkills = [...skills];
 
-// get all category filter buttons
-const filterButtons = document.querySelectorAll(".filter-btn");
+  // Filter by category
+  if (currentCategory !== "all") {
+    updatedSkills = updatedSkills.filter(
+      (skill) => skill.category === currentCategory,
+    );
+  }
 
-// get skill sorting select
-const skillSort = document.getElementById("skill-sort");
+  // Sort the filtered skills
+  const sortOption = skillSort.value;
 
-// store the currently selected category
-let currentCategory = "all";
+  if (sortOption === "name") {
+    updatedSkills.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortOption === "level") {
+    updatedSkills.sort((a, b) => b.level - a.level);
+  }
 
-// filter skills when a category button is clicked
+  renderSkills(updatedSkills);
+}
+
+// Filter skills when a category button is clicked
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     currentCategory = button.dataset.category;
 
-    // update the active filter button
+    // Update the active filter button
     filterButtons.forEach((filterButton) => {
       filterButton.classList.remove("active");
     });
@@ -91,29 +137,10 @@ filterButtons.forEach((button) => {
   });
 });
 
-// update skills when the sorting option changes
+// Update skills when the sorting option changes
 skillSort.addEventListener("change", () => {
   updateSkills();
 });
 
-// apply the selected filter and sort option
-function updateSkills() {
-  let updatedSkills = [...skills]; // create a copy of the skills array
-
-  // filter by category
-  if (currentCategory !== "all") {
-    updatedSkills = updatedSkills.filter(
-      (skill) => skill.category === currentCategory,
-    );
-  }
-
-  // sort the filtered skills
-  const sortOption = skillSort.value;
-
-  if (sortOption === "name") {
-    updatedSkills.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (sortOption === "level") {
-    updatedSkills.sort((a, b) => b.level - a.level);
-  }
-  renderSkills(updatedSkills);
-}
+// Display all skills when the page first loads
+renderSkills(skills);
