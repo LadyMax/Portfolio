@@ -1,4 +1,3 @@
-// Skills data
 const skills = [
   {
     id: 1,
@@ -29,12 +28,48 @@ const skills = [
   },
   {
     id: 4,
-    name: "Databases & Tools",
-    category: "tools",
+    name: "Python",
+    category: "backend",
     proficiency: 3,
+    yearsExperience: 1,
+    description:
+      "I used Python during my internship to work with Odoo backend development and custom modules. I also used Python with FastAPI in my graduation project.",
+  },
+  {
+    id: 5,
+    name: "Java",
+    category: "backend",
+    proficiency: 2,
+    yearsExperience: 0.5,
+    description:
+      "I am currently developing my Java skills through a university programming course. I use it to practise object-oriented programming and problem solving.",
+  },
+  {
+    id: 6,
+    name: "SQL & Databases",
+    category: "database",
+    proficiency: 3,
+    yearsExperience: 1.5,
+    description:
+      "I learned SQL through my studies and development projects. I use relational databases to store, query and manage application data.",
+  },
+  {
+    id: 7,
+    name: "Git & GitHub",
+    category: "tools",
+    proficiency: 4,
     yearsExperience: 2.5,
     description:
-      "I learned to work with SQL databases through my studies and development projects. I also use Git and GitHub for version control and Visual Studio and VS Code for development.",
+      "I use Git and GitHub for version control in school and personal projects. I use commits and repositories to manage changes during development.",
+  },
+  {
+    id: 8,
+    name: "VS & VS Code",
+    category: "tools",
+    proficiency: 4,
+    yearsExperience: 3,
+    description:
+      "I use Visual Studio and VS Code as my main development environments for C#, JavaScript and other programming projects.",
   },
 ];
 
