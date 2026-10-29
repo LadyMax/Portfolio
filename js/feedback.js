@@ -131,7 +131,7 @@ function validateWebsite() {
 
   // use the browser's built-in validation for URLs
   if (!website.validity.valid) {
-    showFieldError(website, websiteError, "Please enter a valid website URL.");
+    showFieldError(website, websiteError, "Please enter a valid website URL, including the https:// prefix.");
     return false;
   }
   clearFieldError(website, websiteError);
