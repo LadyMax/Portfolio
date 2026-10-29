@@ -175,6 +175,15 @@
   margin-bottom: 0;
 }
 
+/* number of currently displayed skills */
+.skills-count {
+  margin-top: 0;
+  margin-bottom: var(--space-medium);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-focus);
+}
+
 /* =========================
           My Journey
    ========================= */

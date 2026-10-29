@@ -75,6 +75,7 @@ const skills = [
 
 // Get DOM elements
 const skillsList = document.getElementById("skills-list");
+const skillsCount = document.getElementById("skills-count");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const skillSort = document.getElementById("skill-sort");
 
@@ -85,6 +86,9 @@ let currentCategory = "all";
 function renderSkills(skillsToRender) {
   skillsList.innerHTML = "";
 
+  // Update the skills count
+  skillsCount.textContent = `Showing ${skillsToRender.length} of ${skills.length} skills`; 
+  
   skillsToRender.forEach((skill) => {
     const skillCard = document.createElement("article");
     skillCard.classList.add("skill-card");
