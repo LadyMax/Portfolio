@@ -88,6 +88,7 @@
 .filter-btn.active {
   background-color: var(--color-primary);
   color: var(--color-text-light);
+  font-weight: bold;
 }
 
 /* Skill sorting controls */

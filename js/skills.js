@@ -88,7 +88,7 @@ function renderSkills(skillsToRender) {
 
   // Update the skills count
   skillsCount.textContent = `Showing ${skillsToRender.length} of ${skills.length} skills`; 
-  
+
   skillsToRender.forEach((skill) => {
     const skillCard = document.createElement("article");
     skillCard.classList.add("skill-card");
@@ -184,9 +184,11 @@ filterButtons.forEach((button) => {
     // Update the active filter button
     filterButtons.forEach((filterButton) => {
       filterButton.classList.remove("active");
+      filterButton.setAttribute("aria-pressed", "false");
     });
 
     button.classList.add("active");
+    button.setAttribute("aria-pressed", "true");
 
     updateSkills();
   });
