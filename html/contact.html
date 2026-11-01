@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="../images/icon/brenda-icon.png" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/contact.css" />
+    <link rel="stylesheet" href="../css/accessibility.css" />
   </head>
 
   <body>
@@ -23,6 +24,35 @@
         </ul>
       </nav>
     </header>
+
+    <!-- Accessibility display settings -->
+    <section class="display-settings" aria-labelledby="display-settings-title">
+      <h2 id="display-settings-title">Display Settings</h2>
+
+      <div class="text-size-controls">
+        <span>Text size:</span>
+        <button type="button" class="text-size-btn" data-textsize="small">
+          Small
+        </button>
+        <button
+          type="button"
+          class="text-size-btn active"
+          data-textsize="medium"
+        >
+          Medium
+        </button>
+        <button type="button" class="text-size-btn" data-textsize="large">
+          Large
+        </button>
+      </div>
+
+      <div class="contrast-controls">
+        <span>Contrast:</span>
+        <button type="button" id="contrast-toggle" aria-pressed="false">
+          High Contrast
+        </button>
+      </div>
+    </section>
 
     <main>
       <section class="contact-intro">
@@ -116,13 +146,9 @@
           </div>
 
           <!-- Form status message -->
-          <div id="form-status" role="status" aria-live="polite">
-          </div>
-
+          <div id="form-status" role="status" aria-live="polite"></div>
         </form>
-
       </section>
-
     </main>
 
     <!-- Footer -->
@@ -200,5 +226,6 @@
     </footer>
 
     <script src="../js/feedback.js"></script>
+    <script src="../js/accessibility.js"></script>
   </body>
 </html>
