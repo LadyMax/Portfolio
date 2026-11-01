@@ -1,3 +1,22 @@
+/* Text size settings */
+html.text-small {
+   font-size:  14px;
+}
+
+html.text-medium {
+   font-size: 16px;
+}
+
+html.text-large {
+   font-size: 20px;
+}
+/* Active text size button */
+.text-size-btn.active {
+   background-color: var(--color-primary);
+   color: var(--color-text-light);
+   font-weight: bold;
+}
+
 /* Display settings panel */
 .display-settings {
    display: flex;
@@ -34,7 +53,7 @@
    color: var(--color-text);
 }
 
-/* BUtton hover effect */
+/* Button hover effect */
 .display-settings button:hover {
    background-color: var(--color-accent);
    color: var(--color-text-light);
