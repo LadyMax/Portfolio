@@ -1,60 +1,110 @@
 /* Text size settings */
 html.text-small {
-   font-size:  14px;
+  font-size: 14px;
 }
 
 html.text-medium {
-   font-size: 16px;
+  font-size: 16px;
 }
 
 html.text-large {
-   font-size: 20px;
+  font-size: 20px;
 }
-/* Active text size button */
-.text-size-btn.active {
-   background-color: var(--color-primary);
-   color: var(--color-text-light);
-   font-weight: bold;
+
+/* =========================
+       High Contrast Mode
+   ========================= */
+
+/* High contrast color settings */
+html.high-contrast {
+  --color-background: #000000;
+  --color-primary: #000000;
+  --color-surface: #000000;
+  --color-focus: #ac27d3;
+
+  --color-text: #ffffff;
+  --color-text-light: #ffffff;
+  --color-accent: #ac27d3;
+  --color-accent-dark: #ffffff;
+  --color-border: #ffffff;
+
+  --color-error: #ff8080;
+  --color-success: #80ff80;
 }
+
+/* Highlight display settings heading */
+html.high-contrast .display-settings h2 {
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* Active display setting button */
+.text-size-btn.active,
+#contrast-toggle.active {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  font-weight: bold;
+}
+
+/* Active buttons in high contrast mode */
+html.high-contrast .text-size-btn.active,
+html.high-contrast #contrast-toggle.active {
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
+}
+
+/* Clear keyboard focus in high contrast mode */
+html.high-contrast a:focus-visible,
+html.high-contrast button:focus-visible,
+html.high-contrast input:focus-visible,
+html.high-contrast select:focus-visible,
+html.high-contrast textarea:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* =========================
+       Display Settings
+   ========================= */
 
 /* Display settings panel */
 .display-settings {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: var(--space-medium);
-   padding: 0.8rem 2rem;
-   border-bottom: 1px solid var(--color-border);
-   background-color: var(--color-surface);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-medium);
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
 }
 
-/* Display settings headings */
+/* Display settings heading */
 .display-settings h2 {
-   margin: 0;
-   font-size: var(--font-size-medium);
+  margin: 0;
+  font-size: var(--font-size-medium);
 }
 
 /* Text size and contrast control groups */
 .text-size-controls,
 .contrast-controls {
-   display: flex;
-   align-items: center;
-   gap: var(--space-small);
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
 }
 
 /* Display settings buttons */
 .display-settings button {
-   font: inherit;
-   cursor: pointer;
-   padding: 0.5rem 1rem;
-   border: 1px solid var(--color-primary);
-   border-radius: 6px;
-   background-color: var(--color-background);
-   color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 /* Button hover effect */
 .display-settings button:hover {
-   background-color: var(--color-accent);
-   color: var(--color-text-light);
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
 }
