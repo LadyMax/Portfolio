@@ -31,7 +31,7 @@ html.text-large {
 /* Display settings headings */
 .display-settings h2 {
    margin: 0;
-   font-size: 1.2rem;
+   font-size: var(--font-size-medium);
 }
 
 /* Text size and contrast control groups */

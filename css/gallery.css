@@ -9,7 +9,7 @@
 }
 
 .gallery-intro h1 {
-  font-size: 3rem;
+  font-size: var(--font-size-page-title);
   margin-top: 0;
   margin-bottom: var(--space-medium);
 }
@@ -69,7 +69,7 @@
 .gallery-item h2 {
   margin-top: 0;
   margin-bottom: var(--space-small);
-  font-size: 1.25rem;
+  font-size: var(--font-size-medium);
   color: var(--color-primary);
 }
 
@@ -97,7 +97,7 @@
   }
 
   .gallery-intro h1 {
-    font-size: 2.2rem;
+    font-size: var(--font-size-section-title);
   }
 
   .gallery {

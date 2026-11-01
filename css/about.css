@@ -18,7 +18,7 @@
 .journey h2,
 .skills h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: var(--font-size-heading);
   margin-top: 0;
   margin-bottom: var(--space-large);
 }
@@ -31,7 +31,7 @@
 }
 
 .about-intro h1 {
-  font-size: 3rem;
+  font-size: var(--font-size-page-title);
   margin-top: 0;
   margin-bottom: var(--space-medium);
 }
@@ -137,7 +137,7 @@
   border-radius: 6px;
   background-color: var(--color-accent);
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: var(--font-size-small);
   font-weight: bold;
   text-transform: capitalize;
 }
@@ -158,7 +158,7 @@
 }
 
 .level-star {
-  font-size: 1.2rem;
+  font-size: var(--font-size-medium);
   font-weight: lighter;
 }
 
@@ -180,7 +180,7 @@
 .skills-count {
   margin-top: 0;
   margin-bottom: var(--space-medium);
-  font-size: 1.2rem;
+  font-size: var(--font-size-medium);
   font-weight: bold;
   color: var(--color-focus);
 }
@@ -251,7 +251,7 @@
   }
 
   .about-intro h1 {
-    font-size: 2.2rem;
+    font-size: var(--font-size-section-title);
   }
 
   .skills-list {

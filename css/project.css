@@ -9,7 +9,7 @@
 }
 
 .project-intro h1 {
-  font-size: 3rem;
+  font-size: var(--font-size-page-title);
   margin-top: 0;
   margin-bottom: var(--space-medium);
 }
@@ -85,7 +85,7 @@
 }
 
 .project-summary h2 {
-  font-size: 2rem;
+  font-size: var(--font-size-heading);
   margin-top: 0;
   margin-bottom: var(--space-medium);
 }
@@ -132,7 +132,7 @@
 .project-screenshot figcaption {
   margin-top: var(--space-small);
   text-align: center;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   font-weight: bold ;
   color: var(--color-focus);
 
@@ -152,7 +152,7 @@
 }
 
 .project-content h3 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-large);
   margin-top: var(--space-large);
   margin-bottom: var(--space-small);
   color: var(--color-text);
@@ -203,7 +203,7 @@
   }
 
   .project-intro h1 {
-    font-size: 2.2rem;
+    font-size: var(--font-size-section-title);
   }
 
   .projects {
@@ -219,7 +219,7 @@
   }
 
   .project-summary h2 {
-    font-size: 1.7rem;
+    font-size: var(--font-size-large);
   }
 
   .project-screenshot {
@@ -242,6 +242,6 @@
   }
 
   .project-content h3 {
-    font-size: 1.3rem;
+    font-size: var(--font-size-medium);
   }
 }
