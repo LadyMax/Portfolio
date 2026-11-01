@@ -74,8 +74,12 @@ html.high-contrast textarea:focus-visible {
   align-items: center;
   gap: var(--space-medium);
   padding: 0.8rem 2rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
   background-color: var(--color-surface);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Display settings heading */
@@ -101,10 +105,39 @@ html.high-contrast textarea:focus-visible {
   border-radius: 6px;
   background-color: var(--color-background);
   color: var(--color-text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Button hover effect */
 .display-settings button:hover {
   background-color: var(--color-accent);
   color: var(--color-text-light);
+}
+
+/* Smooth display setting changes */
+body,
+header,
+footer,
+main,
+section,
+article {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Reduce non-essential motion when requested */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
