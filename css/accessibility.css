@@ -1,0 +1,41 @@
+/* Display settings panel */
+.display-settings {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: var(--space-medium);
+   padding: 0.8rem 2rem;
+   border-bottom: 1px solid var(--color-border);
+   background-color: var(--color-surface);
+}
+
+/* Display settings headings */
+.display-settings h2 {
+   margin: 0;
+   font-size: 1.2rem;
+}
+
+/* Text size and contrast control groups */
+.text-size-controls,
+.contrast-controls {
+   display: flex;
+   align-items: center;
+   gap: var(--space-small);
+}
+
+/* Display settings buttons */
+.display-settings button {
+   font: inherit;
+   cursor: pointer;
+   padding: 0.5rem 1rem;
+   border: 1px solid var(--color-primary);
+   border-radius: 6px;
+   background-color: var(--color-background);
+   color: var(--color-text);
+}
+
+/* BUtton hover effect */
+.display-settings button:hover {
+   background-color: var(--color-accent);
+   color: var(--color-text-light);
+}
