@@ -168,7 +168,7 @@ function updateSkills() {
   if (sortOption === "proficiency") {
     updatedSkills.sort((a, b) => b.proficiency - a.proficiency);
   } else if (sortOption === "experience") {
-    updatedSkills.sort((a, b) => b.yearsExperience - a.yearsExperience);
+    updatedSkills.sort((a, b) => a.yearsExperience - b.yearsExperience);
   } else if (sortOption === "name") { 
     updatedSkills.sort((a, b) => a.name.localeCompare(b.name));
   }
